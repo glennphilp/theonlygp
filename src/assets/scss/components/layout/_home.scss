@@ -1,0 +1,168 @@
+// 4.0 Article
+
+.article {
+
+}
+
+// 4.1 Article Header
+
+.article__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: calc(100vh - 60px);
+  width: 100%;
+  overflow: hidden;
+  // padding: 1rem;
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    height: 100vh;
+    // width: calc(100% - 60px);
+  }
+}
+
+.article__title {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  width: 30vh;
+  margin-bottom: 0;
+  font-size: 30px;
+  line-height: 1;
+  color: #FFF;
+  text-align: left;
+  text-transform: uppercase;
+  @media (min-width: 22em) {
+    font-size: 40px;
+  }
+  @media (min-width: 30em) {
+    font-size: 50px;
+  }
+  @media (min-width: 40em) {
+    width: 50vh;
+    font-size: 75px;
+    text-align: left;
+  }
+}
+
+.meta--masthead {
+  @extend %position-absolute;
+  top: 0;
+  right: rem-calc(5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: calc(100% - 90px);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: $font-color;
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    // width: calc(100% - 60px);
+    right: auto;
+  }
+}
+
+.meta--contd {
+  @extend %position-absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-bottom: 0;
+  // background-color: hsla(0, 0%, 0%, 0.25);
+  > .v-line {
+    position: relative;
+    content: "";
+    display: block;
+    height: calc(100vh - 300px);
+    width: 1px;
+    background-color: hsla(0, 0%, 10%, 0.5);
+    @media (min-width: 30em) {
+      height: 70vh;
+    }
+    &.arrow-down {
+      &::after {
+        position: absolute;
+        top: 100%;
+        margin-left: -2.5px;
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 5px solid hsla(0, 0%, 10%, 0.5);
+      }
+      &::before {
+        margin-left: -2px;
+        content: "";
+        display: block;
+        height: 5px;
+        width: 5px;
+        background-color: hsla(0, 0%, 10%, 0.5);
+        border-radius: 100%;
+      }
+    }
+  }
+  > span {
+    &:last-child {
+      display: block;
+      color: $font-color;
+      transform: translate(2.6em,2em) rotate(90deg);
+      transform-origin: 0px 0px;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
+
+// 4.2 Article Sections
+
+.article__section {
+  position: relative;
+
+  box-sizing: border-box;
+  float: left;
+  max-height: 100vh;
+  width: 100%;
+  // margin-top: calc(100vh - 60px);
+  padding: 1rem;
+
+  background-color: $white;
+
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    // margin-top: 100vh;
+  }
+
+  // &:nth-child(even) {
+  //   background-color: hsla(0, 0%, 0%, 0.25);
+  // }
+}
+
+.section--links {
+  display: flex;
+  justify-content: space-between;
+
+  > .column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    @media only screen
+    and (min-width: 30em)
+    and (orientation: landscape) {
+      width: auto;
+    }
+  }
+}

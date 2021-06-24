@@ -1,0 +1,46 @@
+# Your project's server will run on localhost:xxxx at this port
+PORT: 12489
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+  - "ios >= 7"
+
+# UnCSS will use these settings
+UNCSS_OPTIONS:
+  html:
+    - "src/**/*.html"
+  ignore:
+    - !!js/regexp .foundation-mq
+    - !!js/regexp ^\.is-.*
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+COPY:
+  assets:
+    - "src/assets/**/*"
+    - "!src/assets/{img,js,scss}/**/*"
+  data:
+    - "src/data/.htaccess"
+    - "src/data/**/*"
+  # Paths to JavaScript entry points for webpack to bundle module
+JS:
+  entries:
+    - "src/assets/js/app.js"
+  copy:
+    - "node_modules/barba.js/dist/barba.js"
+    - "node_modules/rsvp/dist/rsvp.js"
+    - "node_modules/gsap/dist/gsap.js"
+    - "node_modules/basket.js/dist/basket.js"
+    - "src/assets/js/**/*.js"
+    - "!src/assets/js/app.js"
+    - "!src/assets/js/lib/**/*"
+# Paths to Sass libraries, which can then be loaded with @import
+SASS:
+  includes:
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"

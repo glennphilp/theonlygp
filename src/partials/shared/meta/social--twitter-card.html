@@ -1,0 +1,45 @@
+<!--
+  source - https://davidwalsh.name/twitter-cards
+  twitter:card - The type of card to be created: summary, photo, or video.
+  twitter:url - The URL that should be used for the card.  This will likely be the same URL as the page's canonical link.
+  twitter:title - The title as it should display in the Twitter Card.
+  twitter:description -  A 200 character summary of the content at the given URL.
+  twitter:image - A representative image URL for the content.  In many cases, simply providing your logo's URL will be just fine.
+-->
+
+<meta name="twitter:card" content="{{twitter_card_type}}">
+<meta name="twitter:url" content="{{site_url}}{{#if page_path}}{{page_path}}{{/if}}">
+<meta name="twitter:title" content="{{page_title}}">
+<meta name="twitter:description" content="{{page_description}}">
+<meta name="twitter:image" content="{{site_url}}img/gp-mark.png">
+
+<!--
+  twitter:site - The Twitter username used by the given site including the '@'
+  twitter:creator - The Twitter username of the individual author of the content
+-->
+
+<meta name="twitter:site" content="{{twitter_handle_site}}">
+<meta name="twitter:creator" content="{{twitter_handle_author}}">
+
+<!--
+  twitter:image:width - The width of the image
+  twitter:image:height - The height of the image
+  twitter:player - URL to the IFRAME'd player, must be HTTPS
+  twitter:player:width - The width of the player IFRAME
+  twitter:player:height - The height of the player IFRAME
+  twitter:player:stream - The URL to stream as video
+  twitter:player:stream:content_type - The content type of the stream
+-->
+
+<!--
+  TODO: Create variable for image versus video
+
+<meta name="twitter:image:width" content="600">
+<meta name="twitter:image:height" content="600">
+
+<meta name="twitter:player" content="https://davidwalsh.name/video-embed/12345">
+<meta name="twitter:player:width" content="435">
+<meta name="twitter:player:height" content="251">
+<meta name="twitter:player:stream" content="https://davidwalsh.name/raw-stream/12345.mp4">
+<meta name="twitter:player:stream:content_type" content="video/mp4;" codecs="avc1.42E01E1, mpa.40.2">
+-->

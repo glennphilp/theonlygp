@@ -1,0 +1,9 @@
+<meta property="og:title" content="{{page_title}}"/>
+{{#if 'page_image'}}
+<meta property="og:image" content="{{site_url}}{{#if page_image}}{{page_image}}{{/if}}"/>
+{{else}}
+<meta property="og:image" content="{{site_url}}img/gp-mark.png"/>
+{{/if}}
+<meta property="og:site_name" content="{{site_name}}"/>
+<meta property="og:description" content="{{page_description}}"/>
+<meta property="og:url" content="{{site_url}}{{#if page_path}}{{page_path}}{{/if}}"/>

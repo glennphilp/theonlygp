@@ -1,0 +1,11 @@
+{{#unlesspage 'index' '404' 'resume'}}
+<link rel="stylesheet" href="{{root}}css/app.css">
+{{/unlesspage}}
+
+{{#ifpage 'index' '404'}}
+<link rel="stylesheet" href="{{root}}css/main.css" inline>
+{{/ifpage}}
+
+{{#ifpage 'resume'}}
+<link rel="stylesheet" href="{{root}}css/resume.css" inline>
+{{/ifpage}}

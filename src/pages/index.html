@@ -1,0 +1,139 @@
+---
+layout: base
+
+gtm: GTM-NZ8VM8
+
+robots: FALSE
+
+site_name: Glenn Philp
+site_url: https://www.glennphilp.com/
+site_brand: assets/img/brand/gp-mark.png
+
+section_title: Welcome
+article_title: False
+
+page_path: /
+
+page_title: Page title will go here.
+page_description: Currently this will serve as the summary of the page for SEO and Social.
+page_image: FALSE
+
+meta_browser_title: Glenn Philp, Lead Web Architect and Project Coordinator - Dallas, Texas
+meta_description: Glenn Philp has been objectively thoughtful in leading a web development team at UT Southwestern for 5 years. He has more than 16 years of experience in developing adaptive-responsive accessible web sites and web apps.
+
+twitter_card_type: summary
+twitter_handle_site: glenndphilp
+twitter_handle_author: glenndphilp
+---
+
+{{!--
+  - twitter_card_type can be summary or summary_large_image
+  - twitter_handle_site
+  - twitter_handle_author
+
+  - page_path, this should be the relative path to the page
+
+  - page_title, this should optimized for SEO and Social output
+  - page_description, is an optimized summary for SEO and Social
+  - page_image, if the article has a feature image provide relative image path - otherwise set to FALSE
+  --}}
+
+  <main class="page__main">
+    <article class="article">
+      <header class="article__header">
+        <div id="background_video" role="presentation" aria-hidden="true">
+          <video autoplay autobuffer autoloop loop poster>
+            <script>
+
+              function getVideo() {
+                var currentTime = new Date().getHours();
+                if (0 <= currentTime&&currentTime < 5) {
+                  document.write('<source src="assets/videos/sunrise.mp4" type="video/mp4">');
+                }
+                if (5 <= currentTime&&currentTime < 11) {
+                  document.write('<source src="assets/videos/coffee-beans.mp4" type="video/mp4">');
+                }
+                if (11 <= currentTime&&currentTime < 16) {
+                  document.write('<source src="assets/videos/writing-working.mp4" type="video/mp4">');
+                }
+                if (16 <= currentTime&&currentTime < 22) {
+                  document.write('<source src="assets/videos/sunset.mp4" type="video/mp4">');
+                }
+                if (22 <= currentTime&&currentTime <= 24) {
+                  document.write('<source src="assets/videos/a-tree-in-the-moon.mp4" type="video/mp4">');
+                }
+              }
+
+              getVideo();
+
+            </script>
+
+            <noscript><link href="main.css" rel="stylesheet"></noscript>
+          </video>
+          </div>
+          <!-- <h1 class="article__title">Objectively Thoughtful</h1> -->
+          <!-- <h1 class="article__title">Growing Passion</h1> -->
+          {{#if article_title}}
+            <h1 class="article__title">{{article_title}}</h1>
+          {{/if}}
+          <p class="meta--masthead"><span class="meta--name">{{site_name}}</span> <span class="meta--est"><abbr title="established">Est</abbr>. 1981</span> <span class="meta--locale-code"><abbr title="Dallas"><span>_</span>DAL<span>_</span></abbr></span></p>
+          <p class="meta--contd"><span class="v-line arrow-down" role="presentation" aria-hidden="true"></span><span>Continue</span></p>
+        </header>
+        <section class="article__section section--links">
+          <h2 class="article__title--secondary show-for-sr">More about me</h2>
+          <div class="column">
+            <p class="show-for-sr">I am on the following social networks</p>
+            <ul class="menu menu--social">
+              <li>
+                <a href="https://www.twitter.com/glenndphilp">
+                  <span class="show-for-sr">Glenn Philp on Twitter</span>
+                  <span class="zmdi zmdi-twitter" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/glennphilp">
+                  <span class="show-for-sr">Glenn Philp on Facebook</span>
+                  <span class="zmdi zmdi-facebook" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/glennphilp">
+                  <span class="show-for-sr">Glenn Philp on LinkedIn</span>
+                  <span class="zmdi zmdi-linkedin" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/+GlennPhilp">
+                  <span class="show-for-sr">Glenn Philp on Google Plus</span>
+                  <span class="zmdi zmdi-google-plus" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.dribbble.com/glennphilp">
+                  <span class="show-for-sr">Glenn Philp on Dribbble</span>
+                  <span class="zmdi zmdi-dribbble" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.codepen.io/glennphilp">
+                  <span class="show-for-sr">Glenn Philp on CodePen</span>
+                  <span class="zmdi zmdi-codepen" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.github.com/glennphilp">
+                  <span class="show-for-sr">Glenn Philp on GitHub</span>
+                  <span class="zmdi zmdi-github-alt" role="presentation" aria-hidden="true"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="column">
+            <a href="{{root}}/resume.html" class="button button--warning">Resume</a>
+          </div>
+        </section>
+      </article>
+    </main>
+    <aside class="page__aside">
+
+    </aside>

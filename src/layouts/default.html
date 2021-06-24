@@ -1,0 +1,26 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    {{> device}}
+    {{> seo}}
+    {{> social}}
+    {{> styles--head}}
+    {{> scripts--head}}
+  </head>
+  <body>
+    <div class="page">
+      <div class="page__header">
+        {{> header--site}}
+      </div>
+      <div class="page__body">
+        {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+        {{> body}}
+        {{> footer--site}}
+      </div><!-- @end page__body -->
+    </div><!-- @end page -->
+    {{> styles--footer}}
+    {{> scripts--footer}}
+  </body>
+</html>

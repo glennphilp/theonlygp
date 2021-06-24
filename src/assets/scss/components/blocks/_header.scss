@@ -1,0 +1,64 @@
+// 2.0 Page Header
+
+.page__header {
+  z-index: 2;
+  grid-area: nav;
+  display: flex;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 0 5px 10px 1px #000;
+  box-sizing: border-box;
+  @media only screen
+  and (orientation: landscape)
+  and (min-width: 30em) {
+    position: fixed;
+    flex-direction: column;
+    height: 100vh;
+    width: 60px;
+    box-shadow: -5px 0px 10px 1px #000;
+  }
+}
+
+.section--brand {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  flex: 1 0 auto;
+  width: rem-calc(45);
+
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    position: static;
+    width: rem-calc(40);
+    margin-left: rem-calc(5);
+  }
+}
+
+.section--title {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    align-items: flex-end;
+  }
+
+  > p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 1;
+    @media only screen
+    and (min-width: 30em)
+    and (orientation: landscape) {
+      transform: translate(0.9em,0) rotate(-90deg);
+      transform-origin: 0px 0px;
+    }
+  }
+}
+
+.section--menu {
+
+}

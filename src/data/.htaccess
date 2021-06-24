@@ -1,0 +1,6 @@
+Header set X-UA-Compatible "IE=edge"
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^glennphilp\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.glennphilp.com/$1 [R,L]

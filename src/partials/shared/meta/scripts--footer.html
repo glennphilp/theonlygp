@@ -1,0 +1,182 @@
+{{#ifpage 'index'}}
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/js/sw.js').then(function() {
+      console.log("Service Worker Registered");
+    });
+  }
+</script>
+{{/ifpage}}
+
+<script src="{{root}}js/app.js"></script>
+
+<!-- <script id="barba">
+  document.addEventListener("DOMContentLoaded", function() {
+    var lastElementClicked;
+    var PrevLink = document.querySelector('.section--brand > a');
+    var NextLink = document.querySelector('a.button');
+
+    Barba.Pjax.init();
+    Barba.Prefetch.init();
+
+    Barba.Dispatcher.on('linkClicked', function(el) {
+      lastElementClicked = el;
+    });
+
+    var MovePage = Barba.BaseTransition.extend({
+      start: function() {
+        this.originalThumb = lastElementClicked;
+
+        Promise
+        .all([this.newContainerLoading, this.scrollTop()])
+        .then(this.movePages.bind(this));
+      },
+
+      scrollTop: function() {
+        var deferred = Barba.Utils.deferred();
+        var obj = { y: window.pageYOffset };
+
+        TweenLite.to(obj, 0.4, {
+          y: 0,
+          onUpdate: function() {
+            if (obj.y === 0) {
+              deferred.resolve();
+            }
+
+            window.scroll(0, obj.y);
+          },
+          onComplete: function() {
+            deferred.resolve();
+          }
+        });
+
+        return deferred.promise;
+      },
+
+      movePages: function() {
+        var _this = this;
+        var goingForward = true;
+        this.updateLinks();
+
+        if (this.getNewPageFile() === this.oldContainer.dataset.prev) {
+          goingForward = false;
+        }
+
+        TweenLite.set(this.newContainer, {
+          visibility: 'visible',
+          xPercent: goingForward ? 100 : -100,
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          right: 0
+        });
+
+        TweenLite.to(this.oldContainer, 0.6, { xPercent: goingForward ? -100 : 100 });
+        TweenLite.to(this.newContainer, 0.6, { xPercent: 0, onComplete: function() {
+          TweenLite.set(_this.newContainer, { clearProps: 'all' });
+          _this.done();
+        }});
+      },
+
+      updateLinks: function() {
+        PrevLink.href = this.newContainer.dataset.prev;
+        NextLink.href = this.newContainer.dataset.next;
+      },
+
+      getNewPageFile: function() {
+        return Barba.HistoryManager.currentStatus().url.split('/').pop();
+      }
+    });
+
+    Barba.Pjax.getTransition = function() {
+      return MovePage;
+    };
+  });
+</script>
+<script src="{{root}}js/TweenMax.js"></script> -->
+
+{{#ifpage 'index' '404'}}
+<script id="jsVideo">
+  var video = document.querySelector('video')
+  , container = document.querySelector('#background_video');
+
+  var setVideoDimensions = function () {
+    // Video's intrinsic dimensions
+    var w = video.videoWidth
+    , h = video.videoHeight;
+
+    // Intrinsic Ratio
+    // Will be more than 1 if W > H and less if W < H
+    var videoRatio = (w / h).toFixed(2);
+
+    // Get the container's computed styles
+    //
+    // Also calculate the min dimensions required (this will be
+    // the container dimentions)
+    var containerStyles = window.getComputedStyle(container)
+    , minW = parseInt( containerStyles.getPropertyValue('width') )
+    , minH = parseInt( containerStyles.getPropertyValue('height') );
+
+    // What's the min:intrinsic dimensions
+    //
+    // The idea is to get which of the container dimension
+    // has a higher value when compared with the equivalents
+    // of the video. Imagine a 1200x700 container and
+    // 1000x500 video. Then in order to find the right balance
+    // and do minimum scaling, we have to find the dimension
+    // with higher ratio.
+    //
+    // Ex: 1200/1000 = 1.2 and 700/500 = 1.4 - So it is best to
+    // scale 500 to 700 and then calculate what should be the
+    // right width. If we scale 1000 to 1200 then the height
+    // will become 600 proportionately.
+    var widthRatio = minW / w
+    , heightRatio = minH / h;
+
+    // Whichever ratio is more, the scaling
+    // has to be done over that dimension
+    if (widthRatio > heightRatio) {
+      var newWidth = minW;
+      var newHeight = Math.ceil( newWidth / videoRatio );
+    }
+    else {
+      var newHeight = minH;
+      var newWidth = Math.ceil( newHeight * videoRatio );
+    }
+
+    video.style.width = newWidth + 'px';
+    video.style.height = newHeight + 'px';
+  };
+
+  video.addEventListener('loadedmetadata', setVideoDimensions, false);
+  window.addEventListener('resize', setVideoDimensions, false);
+</script>
+{{/ifpage}}
+
+{{#ifpage 'resume'}}
+<!-- <script src="{{root}}js/rsvp.js"></script>
+<script src="{{root}}js/basket.js"></script> -->
+<!-- <script src="{{root}}js/basket-loader.js"></script> -->
+{{/ifpage}}
+
+{{#ifpage 'styleguide'}}
+<script>
+  // http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html
+  function GetURLParameter(sParam)
+  {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam)
+      {
+        return sParameterName[1];
+      }
+    }
+  }​
+
+  var tech = GetURLParameter('technology');
+  var blog = GetURLParameter('blog');
+</script>
+{{/ifpage}}

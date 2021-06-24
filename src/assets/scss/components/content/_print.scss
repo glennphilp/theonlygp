@@ -1,0 +1,279 @@
+
+// 1.0 Layout
+
+@page {
+  size: auto;
+  margin: 13mm 10mm 5mm 10mm;
+}
+
+@page :first {
+  margin-top: 0;
+}
+
+.print-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #FFFFFF;
+  @media print {
+    width: 8.5in;
+  }
+}
+
+.page__body {
+  padding-top: 5rem;
+  @media only screen
+  and (min-width: 30em)
+  and (orientation: landscape) {
+    padding-top: 0;
+  }
+}
+
+.article__header {
+  @include xy-grid;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 2px solid #CDCDCD;
+
+  .header--left {
+    @include xy-cell(40);
+    @include breakpoint(medium) {
+      @include xy-cell(13);
+    }
+  }
+
+  .header--center {
+    @include flex;
+    @include xy-cell(40);
+    @include breakpoint(medium) {
+      @include flex-align-self(bottom);
+      @include xy-cell(16);
+    }
+  }
+
+  .header--right {
+    @include breakpoint(medium) {
+      @include flex-align-self(bottom);
+      @include xy-cell(11);
+    }
+  }
+}
+
+
+
+.article {
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  .article__section {
+    @include xy-grid(vertical);
+    padding-top: 3rem;
+    @include breakpoint(medium) {
+      @include xy-grid(horizontal);
+    }
+  }
+}
+
+.article__main {
+  @include breakpoint(medium) {
+    @include xy-cell(27);
+    @include flex-order(2);
+  }
+}
+
+.article__aside {
+  @include breakpoint(medium) {
+    @include xy-cell(13);
+  }
+}
+
+.section--education {
+  page-break-inside: avoid;
+  > article {
+    @include xy-grid();
+    @include flex-align($x: justify, $y: middle);
+  }
+  .chart--pie {
+    @include flex;
+    @include flex-align($x: center);
+    width: 20%;
+  }
+  .article__content {
+    width: 75%;
+    @media print {
+      width: 60%;
+    }
+  }
+  h3 {
+    margin-top: 2rem;
+  }
+}
+
+.section--references {
+  > article {
+    margin-top: 2rem;
+  }
+}
+
+.section--skills {
+  page-break-inside: avoid;
+}
+
+.article__footer {
+  @include xy-grid();
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #CDCDCD;
+
+  > div {
+    @include xy-cell(40);
+    @include breakpoint(medium) {
+      @include xy-cell(13);
+    }
+  }
+}
+
+// 2.0 Typography
+
+body {
+  background-color: #F7F7F7;
+  font-family: 'Raleway', sans-serif;
+}
+
+p,
+dl, dt, dd,
+ol, ul, li {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+dt {
+  margin-top: 5pt;
+  margin-bottom: 0 !important;
+}
+
+.site__title {
+  margin-bottom: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+
+  @media print {
+    font-size: 40pt;
+  }
+}
+
+.site__catch-phrase {
+  margin-top: 1rem;
+  @include breakpoint(medium) {
+    margin-top: 0;
+  }
+  margin-bottom: 2px;
+  font-size: 16pt;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.header--right {
+  > p {
+    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+section {
+  font-size: 10pt;
+  font-weight: 300;
+
+  > h2 {
+    font-family: 'Raleway', sans-serif;
+    border-bottom: 3px solid;
+    font-size: 20pt;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: lowercase;
+  }
+
+  > article {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #CDCDCD;
+    page-break-inside: auto;
+    h3 {
+      margin-bottom: 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14pt;
+      font-weight: 600;
+      line-height: 1;
+      > small {
+        @include breakpoint(medium) {
+          display: inline-block;
+        }
+        font-weight: 400;
+        color: #222;
+      }
+    }
+
+    header {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      > p {
+        margin-bottom: 0;
+      }
+    }
+
+    abbr[title] {
+      border-bottom-width: 0;
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+}
+
+.section--career {
+  small {
+    @include breakpoint(medium) {
+      margin-top: 2rem;
+    }
+  }
+}
+
+blockquote {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0 none;
+  > p {
+    font-size: 11pt;
+  }
+}
+
+.article__aside {
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.footer {
+  // margin-bottom: 25mm;
+  padding-bottom: 1rem;
+  p {
+    margin-bottom: 0;
+    font-size: 10pt;
+    color: #474747;
+  }
+}
+
+@media print {
+  a:link {
+    &::after {
+      display: none;
+    }
+  }
+}
+

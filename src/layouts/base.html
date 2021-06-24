@@ -1,0 +1,29 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+
+<!doctype html>
+<html class="no-js" dir="ltr" lang="en">
+  <head>
+    {{> device}}
+    {{> seo}}
+    {{> social}}
+    {{> styles--head}}
+    {{> scripts--head}}
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{gtm}}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><p><img src="//www.glennphilp.com/analytics/piwik.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    <div id="barba-wrapper" class="page">
+      {{> header--site}}
+
+      <div class="page__body barba-container">
+        {{> body}}
+        {{> footer--site}}
+      </div> <!-- @end Page Body -->
+
+    </div><!-- @end Page -->
+    {{> styles--footer}}
+    {{> scripts--footer}}
+  </body>
+</html>
